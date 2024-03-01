@@ -8,10 +8,7 @@ const MainRoute = require("./routes/main");
 const app = express();
 const cors = require("cors");
 
-const username = "corona";
-const password = "7J2bkB7OwrujJHLV";
-const cluster = "<cluster name>";
-const dbname = "corona";
+
 
 app.get("/", (req, res) => {
   res.send("Express app working");
@@ -29,13 +26,9 @@ app.use("/api", MainRoute);
 
 
 
-const mongoUrl = `mongodb+srv://${username}:${password}@cluster0.jo03lew.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
 mongoose.set("strictQuery", false);
-// mongoose.connect(mongoUrl, async (err) => {
-//   if (err) throw err;
-//   console.log("conncted to db");
-// });
+
 
 
 
