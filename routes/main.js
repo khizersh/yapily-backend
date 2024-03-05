@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
+// this api is used for getting institution list
 router.get("/getInstitutions", async (req, res) => {
   try {
     const resp = await axios.get("https://api.yapily.com/institutions", {
@@ -22,10 +23,10 @@ router.get("/getInstitutions", async (req, res) => {
   }
 });
 
+// this api is used for payment auth request
 router.post("/payment-auth-request", async (req, res) => {
   try {
     const body = req.body;
-    console.log("body :: ", body);
     const response = await axios.post(
       `https://api.yapily.com/payment-auth-requests?raw=false`,
       body,
@@ -52,6 +53,8 @@ router.post("/payment-auth-request", async (req, res) => {
   }
 });
 
+
+// this api is used for instantiate payment
 router.post("/make-payment", async (req, res) => {
   try {
     const { consent, request } = req.body;
@@ -82,6 +85,8 @@ router.post("/make-payment", async (req, res) => {
   }
 });
 
+
+// this api is used for getting payment status or detail
 router.post("/get-payment-detail", async (req, res) => {
   try {
     const { paymentId, consent } = req.body;

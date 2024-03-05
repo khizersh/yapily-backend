@@ -8,8 +8,6 @@ const MainRoute = require("./routes/main");
 const app = express();
 const cors = require("cors");
 
-
-
 app.get("/", (req, res) => {
   res.send("Express app working");
 });
@@ -24,13 +22,6 @@ app.use((req, res, next) => {
 
 app.use("/api", MainRoute);
 
-
-
-
 mongoose.set("strictQuery", false);
-
-
-
-
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
