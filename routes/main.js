@@ -18,7 +18,7 @@ router.get("/getInstitutions", async (req, res) => {
     const data = resp.data;
     res.send({ status: "0000", message: "success", data: data }).status(200);
   } catch (error) {
-    console.log("error : ", error);
+    console.log("error : ", error.message);
     res.send({ status: 9999, message: "Something went wrong!" }).status(200);
   }
 });
@@ -48,8 +48,8 @@ router.post("/payment-auth-request", async (req, res) => {
     const data = response.data;
     res.send({ status: "0000", message: "success", data: data }).status(200);
   } catch (error) {
-    console.log("error : ", error);
-    res.send({ status: 9999, message: "Something went wrong!" }).status(200);
+    console.log("error : ", error.message);
+    res.send({ status: 9999, message: error.message }).status(200);
   }
 });
 
